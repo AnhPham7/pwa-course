@@ -7,4 +7,6 @@ export class HomePage extends BasePage {
   }
 
   xpathTitle = "title";
+  navigateHome = '//a[@rel="home"]';
+  quantity = '//p[@class="woocommerce-result-count"]';
 }

@@ -9,8 +9,12 @@ let homePage: HomePage;
 test.describe("testcase màn home", () => {
   test.beforeEach(async ({ page }) => {
     data = process.env.ENV === "prod" ? dataProd : dataDev;
+    const url =
+      process.env.ENV === "prod"
+        ? process.env.BASE_URL_DEV
+        : process.env.BASE_URL_PROD;
     homePage = new HomePage(page);
-    await homePage.navigate(data.homePage.baseUrl);
+    await homePage.navigate(url || "");
   });
 
   test(
@@ -22,21 +26,21 @@ test.describe("testcase màn home", () => {
       },
       tag: ["@UI"],
     },
-    async ({ page }) => {
+    async () => {
       await test.step("1. Kiểm tra title trang web", async () => {
         await expect(homePage.page).toHaveTitle(data.homePage.expected.title);
       });
 
       await test.step("2. Kiểm tra heading trang web", async () => {
-        await expect(page.locator('xpath=//a[@rel="home"]')).toHaveText(
+        await expect(homePage.page.locator(homePage.navigateHome)).toHaveText(
           data.homePage.expected.heading
         );
       });
 
       await test.step("3. Kiểm tra số lượng sản phẩm trang web", async () => {
-        await expect(
-          page.locator('xpath=//p[@class="woocommerce-result-count"]')
-        ).toContainText(data.homePage.expected.quantity);
+        await expect(homePage.page.locator(homePage.quantity)).toContainText(
+          data.homePage.expected.quantity
+        );
       });
     }
   );

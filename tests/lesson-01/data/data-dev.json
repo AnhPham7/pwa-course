@@ -1,6 +1,5 @@
 {
   "homePage": {
-    "baseUrl": "https://e-commerce-dev.betterbytesvn.com",
     "data": "",
     "expected": {
       "title": "E-commerce site for automation testing – E-commerce site for automation testing",
@@ -9,7 +8,6 @@
     }
   },
   "login_page": {
-    "baseUrl": "https://e-commerce-dev.betterbytesvn.com/wp-admin",
     "data": {
       "username_invalid": "abc",
       "password_invalid": "123"

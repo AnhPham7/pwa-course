@@ -9,8 +9,12 @@ let loginPage: LoginPage;
 test.describe("testcase màn Dashboard - Login", () => {
   test.beforeEach(async ({ page }) => {
     data = process.env.ENV === "prod" ? dataProd : dataDev;
+    const url =
+      process.env.ENV === "prod"
+        ? process.env.BASE_URL_DEV
+        : process.env.BASE_URL_PROD;
     loginPage = new LoginPage(page);
-    await loginPage.navigate(data.login_page.baseUrl);
+    await loginPage.navigate(url || "");
   });
 
   test(
