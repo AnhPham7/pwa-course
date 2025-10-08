@@ -1,0 +1,19 @@
+{
+  "homePage": {
+    "data": "",
+    "expected": {
+      "title": "Automation test site – Automation test site",
+      "heading": "Automation test site",
+      "quantity": 5
+    }
+  },
+  "login_page": {
+    "data": {
+      "username_invalid": "abc",
+      "password_invalid": "123"
+    },
+    "expected": {
+      "heading": "Dashboard"
+    }
+  }
+}

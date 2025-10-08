@@ -1,0 +1,19 @@
+{
+  "homePage": {
+    "data": "",
+    "expected": {
+      "title": "E-commerce site for automation testing – E-commerce site for automation testing",
+      "heading": "E-commerce site for automation testing",
+      "quantity": "23"
+    }
+  },
+  "login_page": {
+    "data": {
+      "username_invalid": "abc",
+      "password_invalid": "123"
+    },
+    "expected": {
+      "heading": "Dashboard"
+    }
+  }
+}
