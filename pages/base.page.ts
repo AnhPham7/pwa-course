@@ -7,6 +7,6 @@ export class BasePage {
   }
 
   async navigate(url: string): Promise<void> {
-    await this.page.goto(url);
+    await this.page.goto(url, { timeout: 30000 });
   }
 }
