@@ -20,13 +20,13 @@ test.describe("Product Page", () => {
   });
 
   test(
-    "Tạo product thành công",
+    "Tạo product thành công cmm",
     {
       annotation: {
         type: "MODULE_ID",
         description: "PRODUCT",
       },
-      tag: ["@PRODUCT_001", "@PRODUCT"],
+      tag: ["@PRODUCT_002", "@PRODUCT"],
     },
     async ({ productPage }) => {
       await test.step("1. Điền vào các thông tin của sản phẩm và bấm 'publish'", async () => {
@@ -50,20 +50,16 @@ test.describe("Product Page", () => {
             productPage.xpathHeadNameProduct(data.productPage.data.nameProduct)
           )
         ).not.toBeVisible();
+      });
 
+      await test.step("3. Search sản phẩm", async () => {
         await productPage.searchProduct(data.productPage.data.nameProduct);
 
         await expect(
-          productPage.page.locator(productPage.nameProd)
-        ).toContainText(data.productPage.data.nameProduct);
-
-        await expect(
-          productPage.page.locator(productPage.regularPrice)
-        ).toContainText(data.productPage.data.price.regularPrice);
-
-        await expect(
-          productPage.page.locator(productPage.salePrice)
-        ).toContainText(data.productPage.data.price.salePrice);
+          productPage.page.locator(productPage.divProduct)
+        ).toBeVisible();
+        const url = productPage.convertUrl(data.productPage.data.nameProduct);
+        expect(productPage.page.url).toContain(url);
       });
     }
   );

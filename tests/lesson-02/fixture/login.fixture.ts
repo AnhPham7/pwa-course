@@ -9,7 +9,11 @@ const test = base.extend<{ loginPage: LoginPage }>({
   loginPage: async ({ page }, use) => {
     const loginPage = new LoginPage(page);
     data = process.env.ENV === "prod" ? dataProd : dataDev;
-    await loginPage.navigate(data.productPage.baseUrl);
+    const url =
+      process.env.ENV === "prod"
+        ? process.env.BASE_URL_DEV
+        : process.env.BASE_URL_PROD;
+    await loginPage.navigate(url || "");
     await loginPage.login(
       process.env.USERNAME_DEV || "",
       process.env.PASSWORD_DEV || ""

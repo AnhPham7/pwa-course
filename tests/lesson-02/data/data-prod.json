@@ -1,6 +1,5 @@
 {
   "productPage": {
-    "baseUrl": "https://e-commerce.betterbytesvn.com/wp-admin/post-new.php?post_type=product",
     "data": {
       "nameProduct": "[Quanh] Khoá học Performance testing với K6",
       "price": {

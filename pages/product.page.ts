@@ -25,6 +25,7 @@ export class ProductPage extends BasePage {
   btnEditCatalog =
     '//div[@id="catalog-visibility"]//a[@href="#catalog-visibility"]';
   radioCatalogSearchResultOnly = '//label[@for="_visibility_search"]';
+  divProduct = '//div[contains(@id, "product-")]';
 
   xpathHeadNameProduct(nameProduct: string) {
     return `//h2[@class="woocommerce-loop-product__title" and contains(text(), "${nameProduct}")]`;
