@@ -1,0 +1,16 @@
+{
+  "productPage": {
+    "data": {
+      "nameProduct": "[Quanh] Khoá học API Testing với Postman",
+      "price": {
+        "regularPrice": "100",
+        "salePrice": "80"
+      }
+    },
+    "expected": {
+      "messPublish": "Product published",
+      "messDelete": "1 product moved to the Trash",
+      "heading": "Dashboard"
+    }
+  }
+}

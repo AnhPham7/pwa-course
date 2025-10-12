@@ -1,0 +1,15 @@
+1. Tại sao autoMockServer setup trước beforeAll?
+=> vì nó là worker scope và auto fixture
+
+2. Tại sao userCredentials chỉ setup trước second test mà không setup ở first test?
+=> vì nó là lazy fixture, loggedInPage phụ thuộc vào userCredentials
+
+3. Tại sao loggedInPage và autoLogApi teardown sau mỗi test, nhưng userCredentials và autoMockServer teardown cuối cùng?
+=> - loggedInPage và autoLogApi là test-scoped fixture 
+	 - userCredentials và autoMockServer worker-scoped fixture
+
+4. Nếu thêm loggedInPage vào first test, log cuối cùng sẽ thay đổi thế nào? Dự đoán.
+=> - first test chỉ dùng page nên userCredentials và loggedInPage ko setup trong first test
+	 - Nếu thêm loggedInPage vào first test:
+	 	+ Trong first test, userCredentials (worker-scoped, lazy) sẽ setup ngay trước loggedInPage, vì loggedInPage phụ thuộc nó.
+		+ loggedInPage sẽ setup và teardown trong first test, vì nó là test-scoped.
