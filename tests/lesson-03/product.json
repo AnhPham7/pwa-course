@@ -1,0 +1,20 @@
+{
+  "PRODUCT_003": {
+    "dev": {
+      "product": {
+        "productName": "[Quanh] Khóa học API Testing với Postman",
+        "type": "simple",
+        "regularPrice": "100",
+        "salePrice": "80"
+      }
+    },
+    "prod": {
+      "product": {
+        "productName": "[Quanh] Khóa học Performance Testing với K6",
+        "type": "simple",
+        "regularPrice": "100",
+        "salePrice": "80"
+      }
+    }
+  }
+}
