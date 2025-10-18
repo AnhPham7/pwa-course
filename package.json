@@ -2,7 +2,14 @@
   "name": "pwa-course",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "quanh:run-smoke": "npx playwright test --grep \"@SOMKE\"",
+    "quanh:run-chrome": "npx playwright test --project=chromium",
+    "quanh:run-chrome-headed": "npx playwright test --project=chromium --headed ",
+    "quanh:run-last-failed": "npx playwright test --last-failed",
+    "quanh:run-3times": "npx playwright test --retries=3"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

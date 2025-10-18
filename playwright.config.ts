@@ -38,6 +38,30 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
+    {
+      name: "chrome auto authenticate",
+      testMatch: /teardown\.ts/,
+      teardown: "teardown",
+    },
+    {
+      name: "teardown",
+      testMatch: /teardown\.ts/,
+    },
+    {
+      name: "chromium",
+      use: {
+        ...devices["Desktop Chrome"],
+        storageState: ".playwright/auth.json",
+      },
+      dependencies: ["chrome auto authenticate"],
+      testIgnore: ["**/login*.spec.ts", "**/register*.spec.ts"],
+    },
+    {
+      name: "firefox for login",
+      use: { ...devices["Desktop Firefox"] },
+      dependencies: ["chrome auto authenticate"],
+      testMatch: ["**/login*.spec.ts", "**/register*.spec.ts"],
+    },
 
     // {
     //   name: 'firefox',
